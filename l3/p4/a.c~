@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+  
+
+int main(void)
+{
+  
+  int n, *arr;
+  printf("Please enter the number of first N numbers to be generated: ");
+  scanf("%d",&n);
+  arr = malloc(sizeof(unsigned) * n);
+  for(int i = 0; i < n; ++i)
+    for(int j = 2; )
+  //for(unsigned k = 0; k < n; ++k)
+  //printf("%u ",arr[k]);
+  return 0;
+}

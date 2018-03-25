@@ -1,0 +1,10 @@
+#include "libstr.h"
+
+void main(void)
+{
+  
+  mystrcmp("String1", "String2");
+  mystrcpy("String1", "String2");
+  mystrncpy("String1", "String2", 3);
+
+}

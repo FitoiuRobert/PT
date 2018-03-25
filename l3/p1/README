@@ -1,0 +1,4 @@
+Use -D N=*size* to define the size of the array.
+Eg:
+	gcc -D N=27 a.c
+Sets teh size of the array to 27.

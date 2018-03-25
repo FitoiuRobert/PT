@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_ENTRIES 2
+
+struct entry {
+  int flag_shapeype:2;
+  union shape2D{
+    struct triangle {
+      int x,y,z;
+    } t;
+    struct circle {
+      int x,y,r;
+    } c;
+    struct rectangle {
+      int c1,c2,c3,c4;
+    }
+  }
+}db[MAX_ENTRIES];
+
+void disp_menu(){
+  printf("\n0. Exit");
+  printf("\n1. Add shape");
+  printf("\n2. List Shapes");
+  printf("\n3. Delete shape");//on index i
+}
+
+int main(void)
+{
+  int option = -1;
+  while(1)
+    {
+      switch(option)
+	{
+	case 0: return 0;
+	case 1:
+	  {
+	    option = -1;
+	    break;
+	  }
+	case 2:
+	  {
+	    option = -1;
+	    break;
+	  }
+	case 3:
+	  {
+	    option = -1;
+	    break;
+	  }
+	default:
+	  {
+	    disp_menu();
+	    scanf("%d",&option);
+	  }
+	}
+    }
+  
+  return 0;
+}

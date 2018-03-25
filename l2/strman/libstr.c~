@@ -1,0 +1,19 @@
+#include<stdio.h>
+
+int mystrcmp(const char *s1, const char *s2)
+{
+  printf("--Prototype strcmp--\nArgs: %s and %s\n--END--\n",s1,s2);
+  return 0;
+}
+
+int mystrcpy(const char *s1, const char *s2)
+{
+  printf("--Prototype strcpy--\nArgs: %s and %s\n--END--\n",s1,s2);
+  return 0;
+}
+
+int mystrncpy(const char *s1, const char *s2, int n)
+{
+  printf("--Prototype strncpy--\nArgs: %s and %s and %d\n--END--\n",s1,s2,n);
+  return 0;
+}

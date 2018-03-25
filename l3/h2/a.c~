@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+unsigned pow2(unsigned n);
+void gen_arr(unsigned *arr, unsigned n);
+void disp_arr(unsigned *arr,unsigned n);
+
+int main(void)
+{
+
+  unsigned n,N, *arr;
+  printf("Enter N:");
+  scanf("%d",&N);
+  n = pow2(N);
+  arr = malloc(sizeof(unsigned)*n);
+
+  gen_arr(arr,n);
+  disp_arr(arr,n);
+  
+  return 0;
+}
+
+unsigned pow2(unsigned n){return n == 1 ? 2 : 2*pow2(n-1);}
+
+void gen_arr(unsigned *arr, unsigned n)
+{
+  for(unsigned i = 0; i < n; ++i)
+    arr[i] = rand() % 100;
+}
+
+void disp_arr(unsigned *arr,unsigned n)
+{
+  for(unsigned i = 0; i < n; ++i)
+    printf("%d ",arr[i]);
+  printf("\n");
+}

@@ -1,0 +1,28 @@
+#include <stdio.h>
+int main(void)
+{
+    int c,st=1,dr=100;
+    char r;
+    printf("Think about a number from 1 to 100 and I will guess it.\nReady?");
+    scanf("%d",c);
+    while(1)
+    {
+        if(st>dr)
+            {
+            printf("No number found!");
+            break;
+            }
+        else
+        {
+            c =(st+dr)/2;
+            printf("Is your number %d?",c);
+                 scanf("%c",r);
+            if (r==y)    
+                 {
+                    printf("Your number is c");
+                    break;
+                }
+            printf("Is your number greater than c?");
+                 scanf("%c",r);
+            if (r==y)
+                   st=c+1;

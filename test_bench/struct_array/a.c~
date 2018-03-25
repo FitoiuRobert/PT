@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+
+
+struct student
+{
+  char *name;
+  int grade;
+  //char *plm;
+  
+} stud[3];
+
+int main(void)
+{
+  /*
+  for(int i=0; i < 2; ++i)
+    {
+      printf("\nEnter student number %d:",i+1);
+      printf("\nName: ");
+      scanf("%s",&stud[i].name);
+      printf("Grade: ");
+      scanf("%d",&stud[i].grade);
+    }
+  for(int i=0; i < 2; ++i)
+    printf("\n%s %d",stud[i].name,stud[i].grade);
+  */
+  //printf("Size : %zu %zu %zu \n",sizeof(stud),sizeof(stud->name),sizeof(stud->grade)/*,sizeof(stud->plm)*/);
+  printf("%u\n%u\n",&stud[0].grade,&stud[1].name);
+  return 0;
+}
