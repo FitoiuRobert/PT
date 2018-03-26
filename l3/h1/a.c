@@ -129,7 +129,7 @@ void insertionSort(int arr[], int n)
   
   int i, key, j,tmp[n];
   memcpy(tmp,arr,sizeof(int) * n);
-  printf("Size of tmp:%d\n",sizeof(tmp));
+  /* printf("Size of tmp:%d\n",sizeof(tmp)); */
    for (i = 1; i < n; i++)
    {
        key = tmp[i];
