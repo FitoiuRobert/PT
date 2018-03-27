@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX 5
+#include "animlib.h"
+
+int main(void)
+{
+  anim_t anim;
+  int option = -1;
+
+  do{disp_menu(&option);}while(option < 0 || option > 4);
+  
+}
