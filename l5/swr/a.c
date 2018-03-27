@@ -5,14 +5,14 @@ char board[N][N];
 
 void init_board(void);
 void print_board(void);
-void print_menu(int *);
+void print_menu(char *);
 void play(void);
 
 
 
 int main(void)
 {
-  int option;
+  char option;
   
   print_menu(&option);
 
@@ -21,7 +21,8 @@ int main(void)
 
 void init_board(void){
   printf("\n--INIT BOARD--\n");
-  int i,j,o,r,c;
+  int i,j;
+  char o,r,c;
   for(i = 0; i < N; ++i)
     for(j = 0; j < N; ++j)
       (board[i][j]) = ' ';
@@ -32,27 +33,27 @@ void init_board(void){
 	{
 	  printf("\n0. Exit");
 	  printf("\n1. Add entry\n>>");
-	  scanf(" %d",&o);
-	}while(o < 0 || o > 1);
+	  scanf(" %c",&o);
+	}while(o < '0' || o > '1');
       switch(o)
 	{
-	case 0: return;
-	case 1:
+	case '0': return;
+	case '1':
 	  {
       
 	    do{
 	      printf("\nEnter row [1..3]\n>>");
-	      scanf(" %d",&r);
-	    }while(isdigit(r) && (r < 1 || r > 3));
+	      scanf(" %c",&r);
+	    }while(r < '1' || r > '3');
 	    do{
 	      printf("\nEnter col [1..3]\n>>");
-	      scanf(" %d",&c);
-	    }while(isdigit(c) && (c < 1 || c > 3));
+	      scanf(" %c",&c);
+	    }while(c < '1' || c > '3');
 
 	    do{
 	      printf("\nEnter value[x/O)]\n>>");
-	      scanf(" %c",&board[r-1][c-1]);
-	    }while(tolower(board[r-1][c-1])!='x' && tolower(board[r-1][c-1])!='o');
+	      scanf(" %c",&board[r-'0'-1][c-'0'-1]);
+	    }while(tolower(board[r-'0'-1][c-'0'-1])!='x' && tolower(board[r-'0'-1][c-'0'-1])!='o');
 	  }
 	}
     }
@@ -73,7 +74,7 @@ void print_board(void){
   }
 }
 
-void print_menu(int *option){
+void print_menu(char *option){
   printf("\n--PRINT MENU--\n");
   while(1){
     do{
@@ -81,19 +82,19 @@ void print_menu(int *option){
       printf("\n1. Init Board");
       printf("\n2. Print Board");
       printf("\n3. Play\n>>");
-      scanf(" %d",option);
-    }while(*option < 0 || *option >3);
+      scanf(" %c",option);
+    }while(*option < '0' || *option >'3');
     switch(*option){
-    case 0:return;
-    case 1:{
+    case '0':return;
+    case '1':{
       init_board();
       break;
     }
-    case 2:{
+    case '2':{
       print_board();
       break;
     }
-    case 3:{
+    case '3':{
       play();
       break;
     }
