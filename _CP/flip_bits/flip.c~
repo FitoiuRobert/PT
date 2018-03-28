@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+
+int main(void)
+{
+
+  char c;
+  int sz = sizeof(unsigned char)*8;
+  FILE *fin,*fout;
+
+  fin = fopen("in.txt","r");
+  fout = fopen("out.txt","w");
+
+  if(fin == NULL || fout == NULL) {perror("fopen()"); return -1;}
+  else {
+    while((c = getc(fp)) != EOF)
+      {
+	fprintf(stdout,"%c",c);
+      }
+    fprintf(stdout,"\n");
+  }
+
+  fclose(fp);
+  return 0;
+}

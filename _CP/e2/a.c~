@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main(void)
+{
+  unsigned int n = 0;
+  char c;
+  file *fp;
+  fp = fopen("in.txt","r");
+  if(fp == NULL) { perror("fopen()"); return -1;}
+
+  while((c = getchar(fp)) != EOF) ++n;
+
+  fclose(fp);
+
+  frintf("\nJust read %d characters from input file\n",n);
+
+  return n;
+  
+}
