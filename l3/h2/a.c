@@ -26,6 +26,7 @@ int main(void)
 
   int found = lin_search(arr,n,key);
   if(found >= 0) {
+    printf("Lineary search:\n");
     printf("Element %u was found at postion %d.\n",key,found);
     printf("No of steps: %u\n",found+1);
   }
@@ -35,6 +36,7 @@ int main(void)
   disp_arr(arr,n); 
   found = bin_search(arr,n,key,&step); 
   if(found >= 0){ 
+    printf("Binary search:\n");
     printf("Element %u was found at postion %d.\n",key,found); 
     printf("No of steps: %d\n",step); 
   } 

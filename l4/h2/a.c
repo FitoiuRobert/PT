@@ -5,30 +5,32 @@
 
 int main(void)
 {
-  animal_t anim[MAX];
-  int option = -1;
+  animal_t animal[MAX];
+  char option;
+  int sz = -1;
+  
   while(1){
-    do{disp_menu(&option);}while(option < 0 || option > 4);
+    do{disp_menu(&option);}while(option < '0' || option > '5');
     switch(option){
-    case 0: return 0;
-    case 1:{
-
+    case '0': return 0;
+    case '1':{
+      add_animal(animal,&sz);
       break;
     }
-    case 2:{
-
+    case '2':{
+      replace_animal(animal, &sz);
       break;
     }
-    case 3:{
-
+    case '3':{
+      delete_animal(animal,&sz);
       break;
     }
-    case 4:{
-
+    case '4':{
+      search_animal(animal,&sz);
       break;
     }
-    case 5:{
-
+    case '5':{
+      display_animal(animal, 0, &sz);
       break;
     }
     }

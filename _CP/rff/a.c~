@@ -1,22 +1,50 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#define MAXLC 64
 
+int cmp2(char **p1, char **p2) {
+  //printf("comparing %s (%p) at %p with %s (%p) at %p\n",
+	 //*p1, *p1, p1, *p2, *p2, p2);
+  return strcmp(*p1, *p2) < 0 ? 1 : -1;
+}
+
+typedef int (*cmp_t)(const void *, const void *);
 
 int main(void)
 {
-  char c;
+  char buff[MAXLC],**lines;
   FILE *fp;
   int n=0;
-
+  
   fp = fopen("in.txt","r");
 
-  if(fp = NULL)
-    fprintf(stderr,"fopen():");
+  if(fp == NULL) {perror("fopen()"); return -1;}
   else
     {
-      while((c = getchar()) != EOF) fprintf(stdout,"%c",c),++n;
-      fprintf("\nJust read %d character!"),n;
+      printf("Size of buff: %zu",sizeof(buff));
+      lines = malloc(sizeof(buff));
+      printf("\nSize lines: %zu",sizeof(lines));
+      while(fgets(buff,sizeof(buff),fp))
+	{
+	  lines[n]=malloc(sizeof(buff));
+	  strncpy(lines[n],buff,MAXLC);
+	  ++n;
+	  lines = realloc(lines,sizeof(buff)*n);
+	}
+      fprintf(stdout,"\nJust finished to read %d buffers!\n",n);
+      qsort(lines,n,sizeof(char *),(cmp_t)cmp2);
       
+      for(int i = 0; i < n ; ++i){
+	for(int j = 0; j < MAXLC; ++j)
+	  if(lines[i][j] == 'w')
+	    {
+	      printf("%s\n",lines[i]);
+	      break;
+	    }
+      }
+      free(lines);
     }
-  
+  fclose(fp);
   return 0;
 }

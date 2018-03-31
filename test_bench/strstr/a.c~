@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <string.h>
+
+
+int main(void)
+{
+  char *s1="abcd",*s2="bc",s3[35];
+  s3 = strstr(s1,s2);
+  puts(s3);
+  return 0;
+}

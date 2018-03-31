@@ -10,7 +10,7 @@ void gen_arr(int arr[], int n);
 
 int main(void)
 {
-  int sz = 11, *arr,count_m,count_i;
+  int sz = 11, *arr,count_m,count_i,swap_i=0,swap_m=0;
   arr = malloc(sizeof(int) * sz);
   
   gen_arr(arr,sz);
@@ -29,8 +29,8 @@ int main(void)
   disp_arr(arr,sz);
   printf("After Insertion Sort:\n");
   insertionSort(arr,sz);
-  printf("Unsorted array:\n");
-  disp_arr(arr,sz);
+
+  
   
   return 0;
 }
