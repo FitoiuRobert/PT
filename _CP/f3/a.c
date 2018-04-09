@@ -3,10 +3,24 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+
 typedef struct{
   int avg;
   char *line;
 }lines_t;
+
+typedef int(*cmp_t)(const void *, const void *);
+
+int compare(lines_t **l, lines_t **r){
+
+  return (*l)->avg - (*r)->avg;
+}
+
+int linecmp(const void *el1, const void *el2){
+  lines_t l1=*(lines_t *)el1;
+  lines_t l2=*(lines_t *)el2;
+  return l1.avg-l2.avg;
+}
 
 int mean(char *arr)
 {
@@ -33,14 +47,17 @@ int main(int argc, char *argv[])
   int _MAXLC = 512,
     _MAXL = 64;
   char *buff = malloc(sizeof(char ) * _MAXLC);
-  lines_t *lines = malloc((sizeof(char *) + sizeof(int))*_MAXL);
+  //lines_t *lines = malloc((sizeof(char *) + sizeof(int))*_MAXL);
+  lines_t *lines=malloc(sizeof(lines_t)*_MAXL);
   int n = 0;
   
   if(lines == NULL) {perror("malloc"); fclose(fp); return 1;}
   else{
     while(fgets(buff,_MAXLC,fp))
       {
-	if(n >= _MAXL) {lines = realloc(lines,(sizeof(char *) + sizeof(int))*(_MAXL*=2));}
+	if(n >= _MAXL) {
+	  lines = realloc(lines, sizeof(lines_t)*(_MAXL*=2));
+	}
 	int _BUFFSZ = strlen(buff);
 	char *tmp = strstr(buff,"int");
 	
@@ -62,8 +79,11 @@ int main(int argc, char *argv[])
 
   }
   
+   qsort(lines,n,sizeof(lines_t),linecmp);
   
-  printf("It runs!\n");
+  for(int i = 0; i < n; ++i)
+    printf("%s\n>>Avg:%d\n",lines[i].line,lines[i].avg);
+  
   fclose(fp);
   return 0;
 }
