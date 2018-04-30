@@ -1,0 +1,14 @@
+/*
+Write a function that, given a char array, returns the maximum  length of a 
+sequence formed by characters not in a char buffer 
+*/
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+
+
+  puts("It works!");
+}

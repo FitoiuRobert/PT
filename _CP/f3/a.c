@@ -84,6 +84,7 @@ int main(int argc, char *argv[])
   for(int i = 0; i < n; ++i)
     printf("%s\n>>Avg:%d\n",lines[i].line,lines[i].avg);
   
+  free(lines);
   fclose(fp);
   return 0;
 }

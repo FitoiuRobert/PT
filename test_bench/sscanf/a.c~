@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+
+int main(void)
+{
+  char *arr = "1234 56 78";
+  int n;
+
+  while(sscanf(arr," %d",&n) == 1) printf(" %d",);
+  return 0;
+}
