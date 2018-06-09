@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node *head, *crt;
+
+struct node{
+  int info;
+  struct node *next;
+};
+
+  struct node * add_to_head(int info){
+    crt = (struct node *)malloc(sizeof (struct node));
+    if(crt == NULL) perror("malloc");
+    crt -> next = head;
+    crt -> info = info;
+    head = crt;
+    return crt;
+}
+  
+int main(void)
+{
+  for(int i = 0; i < 10; ++i)
+    add_to_head(i);
+
+  crt = head;
+  while(crt != NULL){
+    printf("%d\n",crt->info);
+    crt = crt -> next;
+  }
+  
+  return 0;
+}
