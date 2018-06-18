@@ -12,17 +12,16 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "list.h"
+#include "menu.h"
 
 
 int main(void)
 {
 
-  //head = NULL;
-
-  insert();
-  //insert();
-  printList();
+  init();
+  showMenu();
   
   printf("\n");
   return 0;

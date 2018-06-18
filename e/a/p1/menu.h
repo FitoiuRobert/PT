@@ -1,0 +1,52 @@
+void showMenu(void)
+{
+  char o;
+  do{
+    do{
+      printf("\n0.Exit\n1. Insert person\n2. Search (by name)\n3. Delete person\n4. Modify\n5. Show list sorted by name");
+      printf("\n>>");
+      scanf("%c%*c",&o);
+    }while(o < '0' || o > '5');
+    
+    switch(o){
+    case '0':
+      printf("\nExiting...");
+      break;
+      
+    case '1':
+      {
+	printf("\nInserting person...\n");
+	insert();
+      }
+      break;
+      
+    case '2':
+      {
+	char name[32], fName[32];
+	printf("\nEnter the person you want to find");
+	printf("\nName:");
+	scanf(" %[^\n]%*c",name);
+	printf("First name:");
+	scanf(" %[^\n]%*c",fName);
+	printf("Searching...");
+	search(name,fName);
+      }
+      break;
+      
+    case '3':
+      printf("\nDeleteing person...");
+      break;
+      
+    case '4':
+      printf("\nModifying..");
+      break;
+      
+    case '5':
+      printf("\nShowing list sorted by name...");
+      printList();
+      break;
+    }
+    
+  }while(o > '0' && o < '6');
+
+}
