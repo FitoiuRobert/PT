@@ -22,14 +22,14 @@ int linecmp(const void *el1, const void *el2){
   return l1.avg-l2.avg;
 }
 
-int mean(char *arr)!
+int mean(char *arr)
 {
   int tmp,i=0,n=0;
     while(*arr){
     sscanf(arr," %d",&tmp);
     //printf("%d\n",tmp);
     while(isspace(*arr)) ++arr;
-    while(isdigit(*arr) || *arr == '-' || *arr == '+') ++arr;
+clear]    while(isdigit(*arr) || *arr == '-' || *arr == '+') ++arr;
     n+= tmp;
     ++i;
   }
@@ -84,6 +84,7 @@ int main(int argc, char *argv[])
   for(int i = 0; i < n; ++i)
     printf("%s\n>>Avg:%d\n",lines[i].line,lines[i].avg);
   
+  free(lines);
   fclose(fp);
   return 0;
 }

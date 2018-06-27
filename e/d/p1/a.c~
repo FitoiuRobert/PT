@@ -1,0 +1,23 @@
+/*
+Using function pointers rite a program which prints the value table for the
+following functions:
+a) 2x^2-1
+b) tan(x)
+*/
+
+#include <stdio.h>
+
+double (*fun_a)(double x)
+{
+  return 2*(x*x)-1;
+}
+
+int main(void)
+{
+  double *fa = &fun_a;
+
+  printf("%d\n",(*fa)(1));
+  
+  printf("It runs\n");
+  return 0;
+}

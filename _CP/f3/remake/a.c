@@ -1,0 +1,27 @@
+/*
+Write a program that reads a file name on the command line, with
+each line having one identifier followed by whitespace-separated
+integers. Print the lines sorted by the average of their numbers
+.Identifiers are like in C, at most 80 chars. Ignore incorrect
+lines.
+*/
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+
+int main(int argc, char *argv[])
+{
+  if(argc>2){fprintf(stderr,"Too many arguments!\nUsage: %s [filename]\n",argv[0]); exit(1);}
+  FILE *f = fopen(argv[1],"r");
+  if(f == NULL){perror(argv[1]); exit(1);}
+
+  int _MAXLC = 512,
+    _MAXL = 64;
+
+  char *buff = malloc(sizeof(char) * _MAXLC);
+  
+  puts("THIS SHIT WORKS!! FUCK YEAH");
+  exit(0);
+}

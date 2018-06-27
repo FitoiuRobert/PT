@@ -1,0 +1,5 @@
+/*
+Given a character buffer with 6 decimal float numbers separated by spaces, 
+write a function that takes as parameters the character buffer, an array of
+floats and their sizes. Print the numbers into the float array.
+*/
